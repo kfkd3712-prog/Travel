@@ -298,8 +298,12 @@
     .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
 
     /* Tables */
-    .table-wrap { overflow-x: auto; }
-    table.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; word-break: keep-all; }
+    table.data-table th { white-space: nowrap; }
+    @media (max-width: 768px) {
+      table.data-table { min-width: 620px; }
+    }
     table.data-table th {
       text-align: left;
       padding: 9px 10px;
@@ -325,6 +329,12 @@
       align-items: flex-start;
     }
     .field-card.done { opacity: 0.65; background: #f8fafc; }
+    .field-card-actions { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .field-card { flex-wrap: wrap; gap: 8px; padding: 12px; }
+      .field-card-body { flex: 1 1 calc(100% - 95px) !important; min-width: 0; word-break: keep-all; }
+      .field-card-actions { width: 100%; justify-content: flex-end; padding-top: 6px; border-top: 1px solid #f1f5f9; }
+    }
     .field-time-box {
       min-width: 58px;
       padding: 5px 8px;
@@ -609,12 +619,11 @@
 
           <!-- 1-A. Field Cards -->
           <div class="sub-pane active" id="sched-today">
-            <div id="todayCountdownBanner" class="inline-add-box" style="background:#eff6ff; border-color:#bfdbfe; margin-bottom:10px;"><div style="display:flex; justify-content:space-between; align-items:center; font-size:12.5px;"><span><strong style="color:var(--primary);">다음 일정:</strong> 21:30 · <strong>까르푸 계림점 야간 장보기</strong></span><span class="status-pill active">3분 남음</span></div></div>
+            <div id="todayCountdownBanner" class="inline-add-box" style="background:#eff6ff; border-color:#bfdbfe; margin-bottom:10px;"><div style="font-size:12.5px;"><strong style="color:var(--primary);">예정 일정:</strong> 14:50 · <strong>김해국제공항(PUS) 출발 · 대한항공 KE2085</strong></div></div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">
               <button class="btn primary sm" onclick="openTransitModal()"><i class="fa-solid fa-train-subway"></i> 빠른 길찾기 (MRT·도보)</button>
               <button class="btn sm" onclick="openTaxiStayModal()"><i class="fa-solid fa-taxi"></i> 숙소 주소</button>
               <a href="https://papago.naver.com/" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-language" style="color:var(--accent-emerald);"></i> 파파고</a>
-              <a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-g" style="color:var(--primary);"></i> 구글번역</a>
               <a href="https://www.google.com/maps/search/restaurants+near+me" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-utensils" style="color:var(--accent-amber);"></i> 주변맛집</a>
               <a id="todayDayRouteLink" href="https://www.google.com/maps/dir/?api=1&amp;origin=Taoyuan%20International%20Airport%20Terminal%201&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%8C%EB%A5%B4%ED%91%B8%20%EA%B3%84%EB%A6%BC%EC%A0%90%20%EC%95%BC%EA%B0%84&amp;waypoints=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-route" style="color:var(--primary);"></i> 이 날 구글맵 동선 ↗</a>
             </div>
@@ -623,7 +632,7 @@
           <div class="field-card ">
             <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_1')">
             <div class="field-time-box">14:50</div>
-            <div style="flex:1; min-width:0;">
+            <div class="field-card-body" style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill move">이동</span>
                 <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">김해공항</span>
@@ -631,7 +640,7 @@
               <div style="font-size:14px; font-weight:800; ">김해국제공항(PUS) 출발 · 대한항공 KE2085</div>
               <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">2시간 40분 · 일반석 L클래스 · 기내식 · A321neo</div>
             </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+            <div class="field-card-actions">
               
               <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%80%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
@@ -640,7 +649,7 @@
           <div class="field-card ">
             <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_2')">
             <div class="field-time-box">16:30</div>
-            <div style="flex:1; min-width:0;">
+            <div class="field-card-body" style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill move">이동</span>
                 <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">타오위안 T1</span>
@@ -648,7 +657,7 @@
               <div style="font-size:14px; font-weight:800; ">타이완 타오위안 국제공항(TPE T1) 도착</div>
               <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">35분 · 입국 수속 · 이지카드 수령 · 공항철도(보라색 직통) 타이베이역 이동</div>
             </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+            <div class="field-card-actions">
               
               <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Taoyuan%20International%20Airport%20Terminal%201&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
@@ -657,7 +666,7 @@
           <div class="field-card ">
             <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_3')">
             <div class="field-time-box">18:30</div>
-            <div style="flex:1; min-width:0;">
+            <div class="field-card-body" style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill stay">숙소</span>
                 <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">시먼딩</span>
@@ -665,7 +674,7 @@
               <div style="font-size:14px; font-weight:800; ">시내 숙소 체크인 &amp; 짐 정리</div>
               <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">짐 풀고 가볍게 저녁 동선 출발</div>
             </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+            <div class="field-card-actions">
               <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Taoyuan%20International%20Airport%20Terminal%201&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%82%B4%20%EC%88%99%EC%86%8C%20%EC%B2%B4%ED%81%AC%EC%9D%B8&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
               <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%82%B4%20%EC%88%99%EC%86%8C%20%EC%B2%B4%ED%81%AC%EC%9D%B8&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
@@ -674,7 +683,7 @@
           <div class="field-card ">
             <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_4')">
             <div class="field-time-box">19:30</div>
-            <div style="flex:1; min-width:0;">
+            <div class="field-card-body" style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill food">식사</span>
                 <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">시먼딩</span>
@@ -682,7 +691,7 @@
               <div style="font-size:14px; font-weight:800; ">시먼딩 거리 구경 &amp; 저녁 식사</div>
               <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">아종면선 곱창국수, 지파이, 삼형제 빙수, 타이완 생맥주</div>
             </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+            <div class="field-card-actions">
               <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%82%B4%20%EC%88%99%EC%86%8C%20%EC%B2%B4%ED%81%AC%EC%9D%B8&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
               <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
@@ -691,7 +700,7 @@
           <div class="field-card ">
             <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_5')">
             <div class="field-time-box">21:30</div>
-            <div style="flex:1; min-width:0;">
+            <div class="field-card-body" style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill shop">마트/구경</span>
                 <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">완화구</span>
@@ -699,7 +708,7 @@
               <div style="font-size:14px; font-weight:800; ">까르푸 계림점 야간 장보기</div>
               <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">물·맥주·간식 구매 및 기념품(누가크래커·펑리수) 시세 확인</div>
             </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+            <div class="field-card-actions">
               <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%8C%EB%A5%B4%ED%91%B8%20%EA%B3%84%EB%A6%BC%EC%A0%90%20%EC%95%BC%EA%B0%84&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
               <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%8C%EB%A5%B4%ED%91%B8%20%EA%B3%84%EB%A6%BC%EC%A0%90%20%EC%95%BC%EA%B0%84&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
@@ -3143,7 +3152,7 @@
           <div class="field-card ${it.done ? 'done' : ''}">
             <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" ${it.done ? 'checked' : ''} onchange="toggleItDone('${it.id}')">
             <div class="field-time-box">${escapeHtml(it.time || '미정')}</div>
-            <div style="flex:1; min-width:0;">
+            <div class="field-card-body" style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill ${escapeHtml(it.catClass || 'spot')}">${escapeHtml(it.catLabel || '일정')}</span>
                 ${it.region ? `<span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">${escapeHtml(it.region)}</span>` : ''}
@@ -3151,7 +3160,7 @@
               <div style="font-size:14px; font-weight:800; ${it.done ? 'text-decoration:line-through;' : ''}">${escapeHtml(it.title)}</div>
               ${it.moveTime || it.note ? `<div style="font-size:12px; color:var(--text-sub); margin-top:3px;">${escapeHtml([it.moveTime, it.note].filter(Boolean).join(' · '))}</div>` : ''}
             </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+            <div class="field-card-actions">
               ${prevUrl ? `<a href="${prevUrl}" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>` : ''}
               <a href="${myLocUrl}" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
@@ -3340,6 +3349,63 @@
     function openPushSpotModal(id) { const t=getActiveTrip(), sp=t.spots.find(x=>x.id===id); if(!sp)return; pushSpotTargetId=id; document.getElementById('pushSpotNameDisplay').textContent=sp.name; document.getElementById('pushSpotDaySelect').innerHTML=t.days.map((d,i)=>`<option value="${i}">${escapeHtml(d.label)}</option>`).join(''); document.getElementById('pushSpotModal').showModal(); }
     function confirmPushSpotToDay() { const t=getActiveTrip(), sp=t.spots.find(x=>x.id===pushSpotTargetId); if(!sp)return; const dIdx=Number(document.getElementById('pushSpotDaySelect').value)||0; t.days[dIdx].items.push({ id:'it_'+Date.now(), region:sp.area||'', time:document.getElementById('pushSpotTimeInput').value||'', catClass:sp.cat==='맛집'?'food':sp.cat==='기념품'?'shop':'spot', catLabel:sp.cat, title:sp.name, moveTime:'', note:[sp.hours,sp.note].filter(Boolean).join(' · '), done:false, author:currentEditor }); saveData(); document.getElementById('pushSpotModal').close(); renderAll(); showToast('일정표에 추가되었습니다.'); }
 
+    const SPOT_WIKI_HINTS = [
+      [/시먼딩|시먼훙러우|무지개도로/i, [['ko','시먼딩'],['en','Ximending'],['en','Red House Theater']]],
+      [/중정기념당/i, [['ko','중정기념당'],['en','Chiang Kai-shek Memorial Hall']]],
+      [/타이베이\s*101|샹산/i, [['ko','타이베이 101'],['en','Taipei 101']]],
+      [/단수이|홍마오청/i, [['ko','홍마오청'],['ko','단수이구'],['en','Fort San Domingo']]],
+      [/예류|스펀|지우펀|예스지/i, [['ko','지우펀'],['ko','예류 지질공원'],['en','Jiufen']]],
+      [/융캉제/i, [['en','Yongkang Street'],['ko','딘타이펑']]],
+      [/아종면선|곱창국수/i, [['en','Ay-Chung Flour-Rice Noodle'],['ko','어아미선'],['en','Oyster vermicelli']]],
+      [/푸항또우장/i, [['ko','또우장'],['en','Doujiang'],['en','Shaobing']]],
+      [/진천미/i, [['ko','타이베이시'],['en','Taiwanese cuisine']]],
+      [/일갑자찬음|동파육/i, [['ko','동파육'],['en','Dongpo pork']]],
+      [/딘타이펑/i, [['ko','딘타이펑'],['en','Din Tai Fung']]],
+      [/양산박|샤오롱바오/i, [['ko','샤오롱바오'],['en','Xiaolongbao']]],
+      [/하오지쉐이자오|새우만두/i, [['ko','자오즈'],['en','Jiaozi']]],
+      [/우육면|임동방|Master Jim/i, [['ko','우육면'],['en','Beef noodle soup']]],
+      [/훠궈|마라훠궈|딩왕/i, [['ko','훠궈'],['en','Hot pot']]],
+      [/키키레스토랑|신예|황성노마/i, [['ko','대만 요리'],['en','Taiwanese cuisine']]],
+      [/행복당|호호미|도넛/i, [['ko','버블티'],['en','Bubble tea']]],
+      [/TERRA|초콜릿/i, [['ko','초콜릿'],['en','Bean-to-bar']]],
+      [/Tea House|팔십팔차/i, [['ko','우롱차'],['en','Oolong']]],
+      [/라오허제|닝샤/i, [['ko','라오허제 야시장'],['en','Raohe Street Night Market'],['en','Ningxia Night Market']]],
+      [/소반베이커리|펑리수/i, [['ko','펑리수'],['en','Pineapple cake']]],
+      [/누가크래커|루터스|프티 펄/i, [['en','Nougat'],['ko','누가 (과자)']]],
+      [/까르푸/i, [['ko','까르푸'],['en','Carrefour']]],
+      [/Taipei Eye|용산사|경극/i, [['ko','멍자 용산사'],['en','Lungshan Temple of Manka']]]
+    ];
+
+    async function fetchWikiSummary(lang, title) {
+      try {
+        const r = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
+        if (r.ok) {
+          const d = await r.json();
+          if (d && (d.thumbnail || d.extract)) {
+            return { img: d.thumbnail ? d.thumbnail.source : '', extract: d.extract || '' };
+          }
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    async function searchWikiWithImage(lang, query) {
+      try {
+        const url = `https://${lang}.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(query)}&gsrlimit=3&prop=pageimages|extracts&piprop=thumbnail&pithumbsize=800&exintro=1&explaintext=1&format=json&origin=*`;
+        const r = await fetch(url);
+        if (r.ok) {
+          const d = await r.json();
+          const pages = d && d.query && d.query.pages ? Object.values(d.query.pages) : [];
+          const withImg = pages.find(p => p.thumbnail && p.thumbnail.source);
+          const best = withImg || pages[0];
+          if (best && (best.thumbnail || best.extract)) {
+            return { img: best.thumbnail ? best.thumbnail.source : '', extract: best.extract || '' };
+          }
+        }
+      } catch (e) {}
+      return null;
+    }
+
     async function openSpotDetailModal(id) {
       const t=getActiveTrip(), sp=t.spots.find(x=>x.id===id); if(!sp)return;
       activeSpotDetailId=id;
@@ -3356,12 +3422,39 @@
       pb.innerHTML=sp.photoUrl?`<img src="${escapeHtml(sp.photoUrl)}" style="width:100%; max-height:260px; object-fit:cover;">`:`<span style="font-size:12px; color:var(--text-muted);">사진 불러오는 중...</span>`;
       db.textContent=sp.detailDesc||sp.note||'설명을 불러오는 중...';
       document.getElementById('spotDetailModal').showModal();
-
       if(!sp.photoUrl || !sp.detailDesc) {
-        const clean=sp.name.split('(')[0].split('·')[0].split('&')[0].trim();
-        let wiki=null;
-        for(const lang of ['ko','en']) {
-          try { const r=await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`); if(r.ok){ const d=await r.json(); if(d&&(d.extract||d.thumbnail)){ wiki={img:d.thumbnail?d.thumbnail.source:'', extract:d.extract||''}; break; } } } catch(e){}
+        let wiki = null;
+        const clean = sp.name.replace(/\(.*?\)/g,'').split(/[·,&/]/)[0].trim();
+        // 1. Try curated Taiwan spot Wikipedia hints
+        for (const [rx, candidates] of SPOT_WIKI_HINTS) {
+          if (rx.test(sp.name)) {
+            for (const [lang, title] of candidates) {
+              const res = await fetchWikiSummary(lang, title);
+              if (res && res.img && (!wiki || !wiki.img)) {
+                wiki = { img: res.img, extract: (wiki && wiki.extract) || res.extract };
+                break;
+              } else if (res && res.extract && !wiki) {
+                wiki = res;
+              }
+            }
+            if (wiki && wiki.img) break;
+          }
+        }
+        // 2. Direct summary fallback
+        if (!wiki || !wiki.img) {
+          for (const lang of ['ko', 'en']) {
+            const res = await fetchWikiSummary(lang, clean);
+            if (res && res.img) { wiki = { img: res.img, extract: (wiki && wiki.extract) || res.extract }; break; }
+            if (res && res.extract && !wiki) wiki = res;
+          }
+        }
+        // 3. Wikipedia search API fallback
+        if (!wiki || !wiki.img) {
+          for (const [lang, q] of [['ko', clean], ['en', `${clean} Taipei`], ['en', clean]]) {
+            const res = await searchWikiWithImage(lang, q);
+            if (res && res.img) { wiki = { img: res.img, extract: (wiki && wiki.extract) || res.extract }; break; }
+            if (res && res.extract && !wiki) wiki = res;
+          }
         }
         if(activeSpotDetailId!==id)return;
         if(!sp.photoUrl) pb.innerHTML=wiki&&wiki.img?`<img src="${escapeHtml(wiki.img)}" style="width:100%; max-height:260px; object-fit:cover;">`:`<span style="font-size:12px; color:var(--text-muted);">구글 사진·후기 검색을 이용해 주세요.</span>`;
