@@ -2592,6 +2592,7 @@
         trips = embeddedTrips || JSON.parse(JSON.stringify(DEFAULT_TRIPS));
       }
       if (!Array.isArray(trips) || trips.length === 0) trips = JSON.parse(JSON.stringify(DEFAULT_TRIPS));
+      trips = trips.filter(t => !(t.title && t.title.includes('스팟·예약 Pool')));
       if (!trips.some(t => t.id === 'trip_taipei_202702')) trips.unshift(JSON.parse(JSON.stringify(DEFAULT_TRIPS[0])));
       activeTripId = trips.some(t => t.id === 'trip_taipei_202702') ? 'trip_taipei_202702' : trips[0].id;
       try {
@@ -3108,7 +3109,7 @@
         const room=SUPABASE_CONFIG.roomId||'my_trip_room_5p';
         const {data,error}=await sbClient.from('travel_rooms').select('payload').eq('room_id',room).maybeSingle();
         if(error)throw error;
-        if(data&&Array.isArray(data.payload)&&data.payload.length){ isApplyingRemote=true; trips=data.payload; if(!trips.some(t=>t.id===activeTripId))activeTripId=trips[0].id; saveData(); renderAll(); isApplyingRemote=false; } else { await pushTripsToSupabase(); }
+        if(data&&Array.isArray(data.payload)&&data.payload.length){ isApplyingRemote=true; const hadOld=data.payload.some(t=>t.title&&t.title.includes('스팟·예약 Pool')); trips=data.payload.filter(t=>!(t.title&&t.title.includes('스팟·예약 Pool'))); const needPush=hadOld||!trips.some(t=>t.id==='trip_taipei_202702'); if(!trips.some(t=>t.id==='trip_taipei_202702')){ trips.unshift(JSON.parse(JSON.stringify(DEFAULT_TRIPS[0]))); } activeTripId=trips.some(t=>t.id==='trip_taipei_202702')?'trip_taipei_202702':(trips[0]?trips[0].id:''); saveData(); renderAll(); isApplyingRemote=false; if(needPush) await pushTripsToSupabase(); } else { await pushTripsToSupabase(); }
         try{ if(sbChannel)sbClient.removeChannel(sbChannel); sbChannel=sbClient.channel('room_'+room).on('postgres_changes',{event:'*',schema:'public',table:'travel_rooms',filter:'room_id=eq.'+room},p=>{ if(p.new&&Array.isArray(p.new.payload)){isApplyingRemote=true; trips=p.new.payload; saveData(); renderAll(); isApplyingRemote=false; showToast('일정이 업데이트되었습니다.');}}).subscribe(); }catch(e){}
         if(window.__sbPollTimer)clearInterval(window.__sbPollTimer);
         window.__sbPollTimer=setInterval(async()=>{ try{const{data:pd}=await sbClient.from('travel_rooms').select('payload').eq('room_id',room).maybeSingle(); if(pd&&Array.isArray(pd.payload)&&JSON.stringify(pd.payload)!==JSON.stringify(trips)){isApplyingRemote=true; trips=pd.payload; saveData(); renderAll(); isApplyingRemote=false;}}catch(e){} },6000);
