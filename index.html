@@ -609,116 +609,99 @@
 
           <!-- 1-A. Field Cards -->
           <div class="sub-pane active" id="sched-today">
-            <div id="todayCountdownBanner" class="inline-add-box" style="background:#eff6ff; border-color:#bfdbfe; margin-bottom:10px;"><div style="font-size:12.5px;"><strong style="color:var(--primary);">예정 일정:</strong> 09:30 · <strong>중정기념당 &amp; 자유광장</strong></div></div>
+            <div id="todayCountdownBanner" class="inline-add-box" style="background:#eff6ff; border-color:#bfdbfe; margin-bottom:10px;"><div style="display:flex; justify-content:space-between; align-items:center; font-size:12.5px;"><span><strong style="color:var(--primary);">다음 일정:</strong> 21:30 · <strong>까르푸 계림점 야간 장보기</strong></span><span class="status-pill active">3분 남음</span></div></div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">
               <button class="btn primary sm" onclick="openTransitModal()"><i class="fa-solid fa-train-subway"></i> 빠른 길찾기 (MRT·도보)</button>
               <button class="btn sm" onclick="openTaxiStayModal()"><i class="fa-solid fa-taxi"></i> 숙소 주소</button>
               <a href="https://papago.naver.com/" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-language" style="color:var(--accent-emerald);"></i> 파파고</a>
               <a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-g" style="color:var(--primary);"></i> 구글번역</a>
               <a href="https://www.google.com/maps/search/restaurants+near+me" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-utensils" style="color:var(--accent-amber);"></i> 주변맛집</a>
-              <a id="todayDayRouteLink" href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%A4%91%EC%A0%95%EA%B8%B0%EB%85%90%EB%8B%B9&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%8B%9D%EC%83%A4%20%EC%95%BC%EC%8B%9C%EC%9E%A5&amp;waypoints=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%9C%B5%EC%BA%89%EC%A0%9C|%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%99%94%EC%82%B0%201914%20%EB%AC%B8%ED%99%94%EC%B0%BD%EC%9D%98%EC%9B%90%EA%B5%AC|%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%94%94%ED%99%94%EC%A0%9C|%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%93%B0%EC%93%B0%EB%82%9C%EC%B6%98&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-route" style="color:var(--primary);"></i> 이 날 구글맵 동선 ↗</a>
+              <a id="todayDayRouteLink" href="https://www.google.com/maps/dir/?api=1&amp;origin=Taoyuan%20International%20Airport%20Terminal%201&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%8C%EB%A5%B4%ED%91%B8%20%EA%B3%84%EB%A6%BC%EC%A0%90%20%EC%95%BC%EA%B0%84&amp;waypoints=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" class="btn sm"><i class="fa-solid fa-route" style="color:var(--primary);"></i> 이 날 구글맵 동선 ↗</a>
             </div>
-            <div class="tab-bar" id="todayDayTabs"><button class="tab-btn " onclick="activeDayIdx=0; renderTodayView(getActiveTrip());">1일 차 (2/27 토)</button><button class="tab-btn " onclick="activeDayIdx=1; renderTodayView(getActiveTrip());">2일 차 (2/28 일) · 예스지</button><button class="tab-btn active" onclick="activeDayIdx=2; renderTodayView(getActiveTrip());">3일 차 (3/1 월) · 시내</button><button class="tab-btn " onclick="activeDayIdx=3; renderTodayView(getActiveTrip());">4일 차 (3/2 화)</button></div>
+            <div class="tab-bar" id="todayDayTabs"><button class="tab-btn active" onclick="activeDayIdx=0; renderTodayView(getActiveTrip());">1일 차 (2/27 토)</button><button class="tab-btn " onclick="activeDayIdx=1; renderTodayView(getActiveTrip());">2일 차 (2/28 일) · 예스지</button><button class="tab-btn " onclick="activeDayIdx=2; renderTodayView(getActiveTrip());">3일 차 (3/1 월) · 시내</button><button class="tab-btn " onclick="activeDayIdx=3; renderTodayView(getActiveTrip());">4일 차 (3/2 화)</button></div>
             <div id="todayCardsContainer">
           <div class="field-card ">
-            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d3_1')">
-            <div class="field-time-box">09:30</div>
+            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_1')">
+            <div class="field-time-box">14:50</div>
             <div style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
-                <span class="cat-pill spot">여행지</span>
-                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">중정기념당</span>
+                <span class="cat-pill move">이동</span>
+                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">김해공항</span>
               </div>
-              <div style="font-size:14px; font-weight:800; ">중정기념당 &amp; 자유광장</div>
-              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">20분 · 10:00/11:00 정각 근위병 교대식 관람 (MRT 중정기념당역)</div>
+              <div style="font-size:14px; font-weight:800; ">김해국제공항(PUS) 출발 · 대한항공 KE2085</div>
+              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">2시간 40분 · 일반석 L클래스 · 기내식 · A321neo</div>
             </div>
             <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
               
-              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%A4%91%EC%A0%95%EA%B8%B0%EB%85%90%EB%8B%B9&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%80%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
           </div>
         
           <div class="field-card ">
-            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d3_2')">
-            <div class="field-time-box">11:30</div>
+            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_2')">
+            <div class="field-time-box">16:30</div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
+                <span class="cat-pill move">이동</span>
+                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">타오위안 T1</span>
+              </div>
+              <div style="font-size:14px; font-weight:800; ">타이완 타오위안 국제공항(TPE T1) 도착</div>
+              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">35분 · 입국 수속 · 이지카드 수령 · 공항철도(보라색 직통) 타이베이역 이동</div>
+            </div>
+            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+              
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Taoyuan%20International%20Airport%20Terminal%201&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
+            </div>
+          </div>
+        
+          <div class="field-card ">
+            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_3')">
+            <div class="field-time-box">18:30</div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
+                <span class="cat-pill stay">숙소</span>
+                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">시먼딩</span>
+              </div>
+              <div style="font-size:14px; font-weight:800; ">시내 숙소 체크인 &amp; 짐 정리</div>
+              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">짐 풀고 가볍게 저녁 동선 출발</div>
+            </div>
+            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Taoyuan%20International%20Airport%20Terminal%201&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%82%B4%20%EC%88%99%EC%86%8C%20%EC%B2%B4%ED%81%AC%EC%9D%B8&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%82%B4%20%EC%88%99%EC%86%8C%20%EC%B2%B4%ED%81%AC%EC%9D%B8&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
+            </div>
+          </div>
+        
+          <div class="field-card ">
+            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_4')">
+            <div class="field-time-box">19:30</div>
             <div style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
                 <span class="cat-pill food">식사</span>
-                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">동먼</span>
+                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">시먼딩</span>
               </div>
-              <div style="font-size:14px; font-weight:800; ">융캉제 점심 &amp; 망고빙수</div>
-              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">15분 · 딘타이펑 본점(샤오롱바오) or 융캉 우육면 · 스무시 망고빙수</div>
+              <div style="font-size:14px; font-weight:800; ">시먼딩 거리 구경 &amp; 저녁 식사</div>
+              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">아종면선 곱창국수, 지파이, 삼형제 빙수, 타이완 생맥주</div>
             </div>
             <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
-              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%A4%91%EC%A0%95%EA%B8%B0%EB%85%90%EB%8B%B9&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%9C%B5%EC%BA%89%EC%A0%9C&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
-              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%9C%B5%EC%BA%89%EC%A0%9C&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%82%B4%20%EC%88%99%EC%86%8C%20%EC%B2%B4%ED%81%AC%EC%9D%B8&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
           </div>
         
           <div class="field-card ">
-            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d3_3')">
-            <div class="field-time-box">13:30</div>
+            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d1_5')">
+            <div class="field-time-box">21:30</div>
             <div style="flex:1; min-width:0;">
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
-                <span class="cat-pill spot">여행지</span>
-                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">다안</span>
+                <span class="cat-pill shop">마트/구경</span>
+                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">완화구</span>
               </div>
-              <div style="font-size:14px; font-weight:800; ">화산 1914 문화창의원구 &amp; 광화상창</div>
-              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">15분 · 옛 양조장 복합문화공간 산책 · 오르골/소품샵/전자상가 구경</div>
+              <div style="font-size:14px; font-weight:800; ">까르푸 계림점 야간 장보기</div>
+              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">물·맥주·간식 구매 및 기념품(누가크래커·펑리수) 시세 확인</div>
             </div>
             <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
-              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%9C%B5%EC%BA%89%EC%A0%9C&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%99%94%EC%82%B0%201914%20%EB%AC%B8%ED%99%94%EC%B0%BD%EC%9D%98%EC%9B%90%EA%B5%AC&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
-              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%99%94%EC%82%B0%201914%20%EB%AC%B8%ED%99%94%EC%B0%BD%EC%9D%98%EC%9B%90%EA%B5%AC&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
-            </div>
-          </div>
-        
-          <div class="field-card ">
-            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d3_4')">
-            <div class="field-time-box">15:30</div>
-            <div style="flex:1; min-width:0;">
-              <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
-                <span class="cat-pill spot">여행지</span>
-                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">베이먼·중산</span>
-              </div>
-              <div style="font-size:14px; font-weight:800; ">디화제 · 중산 치펑제 · 다다오청 부두 일몰</div>
-              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">20분 · 전통 거리 &amp; 카페거리 구경 후 강변 컨테이너에서 맥주 한잔</div>
-            </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
-              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%99%94%EC%82%B0%201914%20%EB%AC%B8%ED%99%94%EC%B0%BD%EC%9D%98%EC%9B%90%EA%B5%AC&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%94%94%ED%99%94%EC%A0%9C&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
-              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%94%94%ED%99%94%EC%A0%9C&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
-            </div>
-          </div>
-        
-          <div class="field-card ">
-            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d3_5')">
-            <div class="field-time-box">18:00</div>
-            <div style="flex:1; min-width:0;">
-              <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
-                <span class="cat-pill spot">여행지</span>
-                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">신이구</span>
-              </div>
-              <div style="font-size:14px; font-weight:800; ">쓰쓰난춘 &amp; 타이베이 101 야경 · 신이 쇼핑지구</div>
-              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">20분 · 쓰쓰난춘 101 인증샷, 신이구 저녁 식사 및 야외 바</div>
-            </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
-              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%94%94%ED%99%94%EC%A0%9C&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%93%B0%EC%93%B0%EB%82%9C%EC%B6%98&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
-              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%93%B0%EC%93%B0%EB%82%9C%EC%B6%98&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
-            </div>
-          </div>
-        
-          <div class="field-card ">
-            <input type="checkbox" style="margin-top:5px; transform:scale(1.15); cursor:pointer; accent-color:var(--primary);" onchange="toggleItDone('it_d3_6')">
-            <div class="field-time-box">20:30</div>
-            <div style="flex:1; min-width:0;">
-              <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:3px;">
-                <span class="cat-pill food">야시장</span>
-                <span style="font-size:11.5px; font-weight:700; color:var(--text-sub);">중산/스린</span>
-              </div>
-              <div style="font-size:14px; font-weight:800; ">닝샤 야시장 (또는 스린 야시장) 야식</div>
-              <div style="font-size:12px; color:var(--text-sub); margin-top:3px;">미슐랭 굴전·타로볼(닝샤) 또는 왕자치즈감자·지파이(스린)</div>
-            </div>
-            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end;">
-              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%93%B0%EC%93%B0%EB%82%9C%EC%B6%98&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%8B%9D%EC%83%A4%20%EC%95%BC%EC%8B%9C%EC%9E%A5&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
-              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EB%8B%9D%EC%83%A4%20%EC%95%BC%EC%8B%9C%EC%9E%A5&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EC%8B%9C%EB%A8%BC%EB%94%A9%20%EA%B1%B0%EB%A6%AC&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%8C%EB%A5%B4%ED%91%B8%20%EA%B3%84%EB%A6%BC%EC%A0%90%20%EC%95%BC%EA%B0%84&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" title="이전 일정에서 출발하는 MRT·도보 경로"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--text-sub);"></i> 이전→여기</a>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%EB%8C%80%EB%A7%8C%20%ED%83%80%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%EA%B9%8C%EB%A5%B4%ED%91%B8%20%EA%B3%84%EB%A6%BC%EC%A0%90%20%EC%95%BC%EA%B0%84&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn sm" style="color:var(--primary); border-color:#bfdbfe; background:#eff6ff;"><i class="fa-solid fa-train-subway"></i> 내 위치→여기</a>
             </div>
           </div>
         </div>
@@ -734,7 +717,7 @@
           <!-- 1-C. Detailed Table -->
           <div class="sub-pane" id="sched-table">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
-              <div class="tab-bar" id="dayTabsContainer" style="margin-bottom:0;"><button class="tab-btn " onclick="activeDayIdx=0; editingItId=null; renderItineraryView(getActiveTrip());">1일 차 (2/27 토)</button><button class="tab-btn active" onclick="activeDayIdx=1; editingItId=null; renderItineraryView(getActiveTrip());">2일 차 (2/28 일) · 예스지</button><button class="tab-btn " onclick="activeDayIdx=2; editingItId=null; renderItineraryView(getActiveTrip());">3일 차 (3/1 월) · 시내</button><button class="tab-btn " onclick="activeDayIdx=3; editingItId=null; renderItineraryView(getActiveTrip());">4일 차 (3/2 화)</button></div>
+              <div class="tab-bar" id="dayTabsContainer" style="margin-bottom:0;"><button class="tab-btn active" onclick="activeDayIdx=0; editingItId=null; renderItineraryView(getActiveTrip());">1일 차 (2/27 토)</button><button class="tab-btn " onclick="activeDayIdx=1; editingItId=null; renderItineraryView(getActiveTrip());">2일 차 (2/28 일) · 예스지</button><button class="tab-btn " onclick="activeDayIdx=2; editingItId=null; renderItineraryView(getActiveTrip());">3일 차 (3/1 월) · 시내</button><button class="tab-btn " onclick="activeDayIdx=3; editingItId=null; renderItineraryView(getActiveTrip());">4일 차 (3/2 화)</button></div>
               <div style="display:flex; gap:6px; align-items:center;">
                 <input type="text" id="editCurDayLabelInput" class="form-control" style="width:130px; padding:5px 8px; font-size:12px;" onchange="renameCurrentDay(this.value)">
                 <button class="btn sm" onclick="deleteCurrentDay()" style="color:var(--accent-danger);"><i class="fa-regular fa-trash-can"></i> Day 삭제</button>
@@ -771,54 +754,54 @@
                 </thead>
                 <tbody id="itineraryTableBody">
         <tr>
-          <td><input type="checkbox" onchange="toggleItDone('it_d2_1')" style="cursor:pointer; accent-color:var(--primary);"></td>
-          <td style="font-weight:700;">타이베이역</td>
-          <td style="font-weight:800; color:var(--primary);">09:00</td>
+          <td><input type="checkbox" onchange="toggleItDone('it_d1_1')" style="cursor:pointer; accent-color:var(--primary);"></td>
+          <td style="font-weight:700;">김해공항</td>
+          <td style="font-weight:800; color:var(--primary);">14:50</td>
           <td><span class="cat-pill move">이동</span></td>
-          <td style="font-weight:700; ">예스지 투어 집결 &amp; 출발 (예류·스펀·지우펀)</td>
-          <td style="font-size:11.5px; color:var(--text-muted);">1시간</td>
-          <td style="font-size:12px;">버스투어 또는 5인 프라이빗 택시/밴 투어 (우산·편한 신발 필수)</td>
-          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d2_1'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d2_1')"><i class="fa-regular fa-trash-can"></i></button></td>
+          <td style="font-weight:700; ">김해국제공항(PUS) 출발 · 대한항공 KE2085</td>
+          <td style="font-size:11.5px; color:var(--text-muted);">2시간 40분</td>
+          <td style="font-size:12px;">일반석 L클래스 · 기내식 · A321neo</td>
+          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d1_1'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d1_1')"><i class="fa-regular fa-trash-can"></i></button></td>
         </tr>
         <tr>
-          <td><input type="checkbox" onchange="toggleItDone('it_d2_2')" style="cursor:pointer; accent-color:var(--primary);"></td>
-          <td style="font-weight:700;">예류</td>
-          <td style="font-weight:800; color:var(--primary);">10:15</td>
-          <td><span class="cat-pill spot">여행지</span></td>
-          <td style="font-weight:700; ">예류 지질공원 (Yehliu)</td>
-          <td style="font-size:11.5px; color:var(--text-muted);">1시간</td>
-          <td style="font-size:12px;">여왕머리 바위, 버섯바위 등 해안 기암괴석 산책</td>
-          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d2_2'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d2_2')"><i class="fa-regular fa-trash-can"></i></button></td>
+          <td><input type="checkbox" onchange="toggleItDone('it_d1_2')" style="cursor:pointer; accent-color:var(--primary);"></td>
+          <td style="font-weight:700;">타오위안 T1</td>
+          <td style="font-weight:800; color:var(--primary);">16:30</td>
+          <td><span class="cat-pill move">이동</span></td>
+          <td style="font-weight:700; ">타이완 타오위안 국제공항(TPE T1) 도착</td>
+          <td style="font-size:11.5px; color:var(--text-muted);">35분</td>
+          <td style="font-size:12px;">입국 수속 · 이지카드 수령 · 공항철도(보라색 직통) 타이베이역 이동</td>
+          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d1_2'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d1_2')"><i class="fa-regular fa-trash-can"></i></button></td>
         </tr>
         <tr>
-          <td><input type="checkbox" onchange="toggleItDone('it_d2_3')" style="cursor:pointer; accent-color:var(--primary);"></td>
-          <td style="font-weight:700;">스펀</td>
-          <td style="font-weight:800; color:var(--primary);">12:00</td>
-          <td><span class="cat-pill spot">여행지</span></td>
-          <td style="font-weight:700; ">스펀 라오제 점심 &amp; 천등 날리기</td>
-          <td style="font-size:11.5px; color:var(--text-muted);">1시간 30분</td>
-          <td style="font-size:12px;">닭날개 볶음밥, 땅콩 아이스크림, 철길 소원 천등 날리기</td>
-          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d2_3'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d2_3')"><i class="fa-regular fa-trash-can"></i></button></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" onchange="toggleItDone('it_d2_4')" style="cursor:pointer; accent-color:var(--primary);"></td>
-          <td style="font-weight:700;">지우펀</td>
-          <td style="font-weight:800; color:var(--primary);">15:30</td>
-          <td><span class="cat-pill spot">여행지</span></td>
-          <td style="font-weight:700; ">지우펀 라오제 · 수치루 홍등 야경</td>
-          <td style="font-size:11.5px; color:var(--text-muted);">2시간</td>
-          <td style="font-size:12px;">아메이차주관 앞 계단 홍등 점등 감상 · 타로볼 디저트</td>
-          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d2_4'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d2_4')"><i class="fa-regular fa-trash-can"></i></button></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" onchange="toggleItDone('it_d2_5')" style="cursor:pointer; accent-color:var(--primary);"></td>
-          <td style="font-weight:700;">송산</td>
+          <td><input type="checkbox" onchange="toggleItDone('it_d1_3')" style="cursor:pointer; accent-color:var(--primary);"></td>
+          <td style="font-weight:700;">시먼딩</td>
           <td style="font-weight:800; color:var(--primary);">18:30</td>
-          <td><span class="cat-pill food">야시장</span></td>
-          <td style="font-weight:700; ">시내 복귀 → 라오허제 야시장 &amp; 송산 자우궁</td>
-          <td style="font-size:11.5px; color:var(--text-muted);">1시간</td>
-          <td style="font-size:12px;">입구 화덕 후추빵 필수! 큐브 스테이크 · 무지개다리 야경</td>
-          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d2_5'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d2_5')"><i class="fa-regular fa-trash-can"></i></button></td>
+          <td><span class="cat-pill stay">숙소</span></td>
+          <td style="font-weight:700; ">시내 숙소 체크인 &amp; 짐 정리</td>
+          <td style="font-size:11.5px; color:var(--text-muted);">-</td>
+          <td style="font-size:12px;">짐 풀고 가볍게 저녁 동선 출발</td>
+          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d1_3'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d1_3')"><i class="fa-regular fa-trash-can"></i></button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" onchange="toggleItDone('it_d1_4')" style="cursor:pointer; accent-color:var(--primary);"></td>
+          <td style="font-weight:700;">시먼딩</td>
+          <td style="font-weight:800; color:var(--primary);">19:30</td>
+          <td><span class="cat-pill food">식사</span></td>
+          <td style="font-weight:700; ">시먼딩 거리 구경 &amp; 저녁 식사</td>
+          <td style="font-size:11.5px; color:var(--text-muted);">-</td>
+          <td style="font-size:12px;">아종면선 곱창국수, 지파이, 삼형제 빙수, 타이완 생맥주</td>
+          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d1_4'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d1_4')"><i class="fa-regular fa-trash-can"></i></button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" onchange="toggleItDone('it_d1_5')" style="cursor:pointer; accent-color:var(--primary);"></td>
+          <td style="font-weight:700;">완화구</td>
+          <td style="font-weight:800; color:var(--primary);">21:30</td>
+          <td><span class="cat-pill shop">마트/구경</span></td>
+          <td style="font-weight:700; ">까르푸 계림점 야간 장보기</td>
+          <td style="font-size:11.5px; color:var(--text-muted);">-</td>
+          <td style="font-size:12px;">물·맥주·간식 구매 및 기념품(누가크래커·펑리수) 시세 확인</td>
+          <td style="white-space:nowrap;"><button class="icon-btn edit" onclick="editingItId='it_d1_5'; renderItineraryView(getActiveTrip());"><i class="fa-solid fa-pen"></i></button> <button class="icon-btn" onclick="deleteItItem('it_d1_5')"><i class="fa-regular fa-trash-can"></i></button></td>
         </tr></tbody>
               </table>
             </div>
@@ -1974,7 +1957,7 @@
 
   <dialog id="taxiStayModal" style="max-width:500px;">
     <div class="dialog-head"><h2>숙소 주소 (기사님 보여주기용)</h2><button class="dialog-close" onclick="document.getElementById('taxiStayModal').close()"><i class="fa-solid fa-xmark"></i></button></div>
-    <div class="dialog-body" id="taxiStayBody" style="text-align:center; padding:24px;"><div style="font-size:20px; font-weight:800; margin-bottom:10px;">예약·숙소 탭에서 주소를 입력하세요</div><div> </div></div>
+    <div class="dialog-body" id="taxiStayBody" style="text-align:center; padding:24px;"></div>
     <div class="dialog-foot"><button class="btn" onclick="copyStayAddressQuick()">주소 복사</button><button class="btn primary" onclick="document.getElementById('taxiStayModal').close()">닫기</button></div>
   </dialog>
 
@@ -2001,16 +1984,16 @@
     <div class="dialog-foot"><button class="btn" onclick="closeConfirmModal()">취소</button><button class="btn primary" id="confirmModalOkBtn" style="background:var(--accent-danger); border-color:var(--accent-danger);">삭제</button></div>
   </dialog>
 
-  <div id="toast"></div>
+  <div id="toast" class="">index.html 다운로드 완료!</div>
 
 
   <!-- QUICK ADD ITINERARY MODAL -->
-  <dialog id="quickItModal" class="modal">
-    <div class="modal-head">
-      <h3>새 일정 추가</h3>
-      <button class="icon-btn" onclick="document.getElementById('quickItModal').close()"><i class="fa-solid fa-xmark"></i></button>
+  <dialog id="quickItModal" style="max-width:520px;">
+    <div class="dialog-head">
+      <h2>새 일정 추가</h2>
+      <button class="dialog-close" onclick="document.getElementById('quickItModal').close()"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div class="modal-body" style="display:flex; flex-direction:column; gap:10px;">
+    <div class="dialog-body" style="display:flex; flex-direction:column; gap:10px;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
         <div>
           <label style="font-size:11.5px; font-weight:800; color:var(--text-sub); display:block; margin-bottom:4px;">일차 선택</label>
@@ -2055,7 +2038,7 @@
         </div>
       </div>
     </div>
-    <div class="modal-foot">
+    <div class="dialog-foot">
       <button class="btn" onclick="document.getElementById('quickItModal').close()">취소</button>
       <button class="btn primary" onclick="saveQuickItModal()">일정 추가</button>
     </div>
@@ -2063,12 +2046,12 @@
 
 
   <!-- TRANSIT ROUTE FINDER MODAL -->
-  <dialog id="transitRouteModal" class="modal">
-    <div class="modal-head">
-      <h3>🚇 빠른 길찾기 (MRT · 버스 · 도보)</h3>
-      <button class="icon-btn" onclick="document.getElementById('transitRouteModal').close()"><i class="fa-solid fa-xmark"></i></button>
+  <dialog id="transitRouteModal" style="max-width:520px;">
+    <div class="dialog-head">
+      <h2>🚇 빠른 길찾기 (MRT · 버스 · 도보)</h2>
+      <button class="dialog-close" onclick="document.getElementById('transitRouteModal').close()"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div class="modal-body" style="display:flex; flex-direction:column; gap:10px;">
+    <div class="dialog-body" style="display:flex; flex-direction:column; gap:10px;">
       <div style="font-size:12px; color:var(--text-sub); background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:8px 10px;">
         출발지와 도착지를 고르면 구글맵에서 <strong>어느 MRT 노선·출구·도보 몇 분</strong>인지 바로 열어줍니다.
       </div>
@@ -2094,7 +2077,7 @@
         </select>
       </div>
     </div>
-    <div class="modal-foot">
+    <div class="dialog-foot">
       <button class="btn" onclick="document.getElementById('transitRouteModal').close()">닫기</button>
       <a id="trGoLink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Taipei+101&amp;travelmode=transit" target="_blank" rel="noopener noreferrer" class="btn primary"><i class="fa-solid fa-diamond-turn-right"></i> 구글맵 길찾기 ↗</a>
     </div>
